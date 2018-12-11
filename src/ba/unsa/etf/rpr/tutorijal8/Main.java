@@ -16,20 +16,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/finder.fxml"));
+        FileListModel model = new FileListModel();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/finder.fxml"));
+        loader.setController(new FinderController(model));
+        Parent root = loader.load();
         primaryStage.setTitle("Pretraga datoteka");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.show();
-        File[] file = File.listRoots();
-        for(int i=0;i<file.length;i++){
-            File[] files = file[i].listFiles();
-            for(int j=0;j<files.length;j++){
-                if(files[j].getName().equals("home")){
-                    System.out.print(files[j].getName() + "-- with path : ");
-                    System.out.println(files[j].getAbsolutePath());
-                }
-            }
-        }
+
     }
 
 
