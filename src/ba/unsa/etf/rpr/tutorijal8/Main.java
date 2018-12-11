@@ -12,13 +12,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class Main extends Application {
 
-    public static class Finder implements Runnable{
 
-        @Override
-        public void run() {
-
-        }
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -34,7 +28,6 @@ public class Main extends Application {
                     System.out.print(files[j].getName() + "-- with path : ");
                     System.out.println(files[j].getAbsolutePath());
                 }
-
             }
         }
     }
