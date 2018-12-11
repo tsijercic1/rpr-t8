@@ -10,7 +10,7 @@
 <?import javafx.scene.control.Label?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal8.Controller">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal8.FinderController">
    <center>
       <ListView BorderPane.alignment="CENTER">
          <padding>
