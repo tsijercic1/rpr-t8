@@ -1,0 +1,11 @@
+.myPadding{
+    -fx-padding: 5px, 5px, 5px, 5px;
+}
+
+.valid{
+    -fx-background-color: yellowgreen;
+}
+
+.invalid{
+    -fx-background-color: tomato;
+}

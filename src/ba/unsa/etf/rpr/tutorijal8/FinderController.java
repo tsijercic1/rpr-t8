@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.tutorijal8;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,8 +14,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class FinderController implements Initializable {
     private FileListModel model;
@@ -37,15 +41,19 @@ public class FinderController implements Initializable {
             @Override
             public void onChanged(Change<? extends String> c) {
                 Stage x =new Stage();
-                x.setTitle("prozor");
-                Parent root2 = new Parent() {
-                    @Override
-                    public void impl_updatePeer() {
-                        super.impl_updatePeer();
+                x.setTitle("Slanje pošte");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/sendWindow.fxml"));
+                loader.setController(new SendWindowController());
+                Parent root2 = null;
+                try {
+                    root2 = loader.load();
+                    if(root2==null){
+                        System.out.println("fakat jes null");
                     }
-                };
-
-                x.setScene(new Scene( root2,300,300));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                x.setScene(new Scene( root2,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 x.initOwner(Main.m.getScene().getWindow());
                 x.initModality(Modality.APPLICATION_MODAL);
                 x.show();
@@ -62,7 +70,11 @@ public class FinderController implements Initializable {
 
         public void find(String name, String parent){
             if(stopBtn.isDisabled()){
-                Thread.currentThread().stop();
+                try {
+                    Thread.currentThread().join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
             File[] child = new File(parent).listFiles();
             if (child != null) {
@@ -72,11 +84,11 @@ public class FinderController implements Initializable {
                             Platform.runLater(()-> {
                                 model.addPut(aChild.getAbsolutePath());
                             });
-//                            try {
-//                                Thread.sleep(100);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                         }
                         if (aChild.isDirectory()) {
                             find(name, aChild.getAbsolutePath());

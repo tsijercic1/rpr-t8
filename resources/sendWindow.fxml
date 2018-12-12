@@ -8,9 +8,13 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import java.net.URL?>
+<BorderPane styleClass="myPadding" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@sendStyle.css"/>
+   </stylesheets>
    <center>
-      <GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+      <GridPane styleClass="myPadding" hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,73 +27,24 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Ime:">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Prezime:" GridPane.rowIndex="1">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Adresa" GridPane.rowIndex="2">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <Label text="Grad" GridPane.rowIndex="3">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <Label text="Poštanski broj:" GridPane.rowIndex="4">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <TextField GridPane.columnIndex="1">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
+            <Label styleClass="myPadding" alignment="CENTER" contentDisplay="CENTER" text="Ime:"/>
+            <Label styleClass="myPadding" alignment="CENTER" contentDisplay="CENTER" text="Prezime:" GridPane.rowIndex="1"/>
+            <Label styleClass="myPadding" alignment="CENTER" contentDisplay="CENTER" text="Adresa" GridPane.rowIndex="2"/>
+            <Label styleClass="myPadding" text="Grad" GridPane.rowIndex="3"/>
+            <Label styleClass="myPadding" text="Poštanski broj:" GridPane.rowIndex="4"/>
+            <TextField fx:id="ime" styleClass="myPadding" GridPane.columnIndex="1"/>
+            <TextField fx:id="prezime" styleClass="myPadding" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <TextField fx:id="adresa" styleClass="myPadding" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <TextField fx:id="grad" styleClass="myPadding" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <TextField fx:id="postanskiBroj" styleClass="myPadding" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
          </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
       </GridPane>
    </center>
-   <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-   </padding>
    <bottom>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pošalji" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
+      <Button fx:id="sendBtn" onAction="#send" styleClass="myPadding" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pošalji" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
