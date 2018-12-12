@@ -1,17 +1,21 @@
 package ba.unsa.etf.rpr.tutorijal8;
 
+import com.sun.security.ntlm.Client;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
-import java.io.File;
+import java.io.InputStream;
+import java.net.Proxy;
+import java.net.Socket;
+import java.net.URL;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -32,24 +36,20 @@ public class Main extends Application {
         primaryStage.setOnHiding(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                Platform.exit();
+                System.exit(0);
             }
         });
+//
+//        URL url = new URL("http://c9.etf.unsa.ba/proba/postanskiBroj.php?postanskiBroj=71301");
+//        InputStream tok = url.openStream();
+//        int size = tok.available();
+//        String rezultat = "";
+//        for(int i=0;i<size;i++){
+//            rezultat += (char)tok.read();
+//        }
+//        System.out.println(rezultat);
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public static void main(String[] args) {
