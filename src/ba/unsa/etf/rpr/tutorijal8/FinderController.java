@@ -25,7 +25,7 @@ public class FinderController implements Initializable {
     public Button findBtn;
     public TextField inputField;
     public ListView<String> listaPuteva;
-    public File root = new File("/home/tsijercic1");
+    public File root = new File("/home/tarik");
     public Button stopBtn;
 
     public FinderController(FileListModel model) {
